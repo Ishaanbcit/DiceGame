@@ -144,7 +144,7 @@ $(document).ready(function () {
         let finalScore = $(".player--active .score").text();
         finalScore = parseInt(finalScore, 10);
 
-        if (finalScore >= 20) {
+        if (finalScore >= 100) {
             $(".player--active").addClass("player--winner");
             console.log("winner is found");
             enabledisablebtns(0);

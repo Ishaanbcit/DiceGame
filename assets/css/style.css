@@ -27,13 +27,20 @@ body > main{
   display:flex;
   flex-direction:column;
   justify-content:center;
+  align-items:center;
   padding:24px 16px;
   height:100%;
+  width:100%;
+}
+
+main > .menu-btn{
+  max-width:1200px;
 }
 
 .player-dashboard {
   position: relative;
-  width: min(95vw, 1024px);
+  width:100%;
+  max-width:1200px;
   height: 80vh;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
