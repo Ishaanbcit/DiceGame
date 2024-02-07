@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Dice Game</title>
+</head>
+
+<body>
+
+    <main>
+        <section class="d-flex justify-content-end gap-3 pb-3">
+            <button class="btn--menu border-0 bg-transparent d-flex flex-column justify-content-center gap-1 p-0">
+                     <span class="top"></span>
+                     <span class="middle"></span>
+                     <span class="bottom"></span>
+            </button>
+        </section>
+
+        <section class="player-dashboard position-relative d-flex flex-column align-items-center justify-content-center m-0">
+
+            <div
+                class="player player--0 player--active position-relative d-flex h-50 w-100 flex-nowrap gap-4 justify-content-between align-items-center p-3 p-md-4 p-lg-5">
+                <div class="d-flex flex-column align-items-center">
+                    <h2 class="score-head m-0" id="name--0">score</h2>
+                    <p class="score m-0" id="score--0">0</p>
+                </div>
+                <div class="d-flex flex-column gap-3 align-items-center">
+                    <div
+                        class="current d-flex flex-column align-items-center justify-content-center gap-3 py-3 px-3 px-sm-5">
+                        <p class="current-label m-0">Current</p>
+                        <p class="current-score m-0" id="current--0">0</p>
+                    </div>
+                    <div class="d-flex gap-2 play-btns">
+                        <button class="btn-game btn--roll p-2 p-sm-3">🎲 Roll</button>
+                        <button class="btn-game btn--hold p-2 p-sm-3">📥 Hold</button>
+                    </div>
+                </div>
+                <p class="name m-0" id="PlayerName">Player1</p>
+                <span class="winner-trophy">🏆</span>
+
+            </div>
+
+            <div
+                class="player player--1 position-relative d-flex h-50 w-100 flex-nowrap gap-4  justify-content-between align-items-center p-3 p-md-4 p-lg-5">
+                <div class="d-flex flex-column align-items-center">
+                    <h2 class="score-head m-0" id="name--1">score</h2>
+                    <p class="score m-0" id="score--1">0</p>
+                </div>
+                <div class="d-flex flex-column gap-3 align-items-center">
+                    <div
+                        class="current d-flex flex-column align-items-center justify-content-center gap-3 py-3 px-3 px-sm-5">
+                        <p class="current-label m-0">Current</p>
+                        <p class="current-score m-0" id="current--1">0</p>
+                    </div>
+
+                    <div class="d-flex gap-2 play-btns">
+                        <button class="btn-game btn--roll p-2 p-sm-3">🎲 Roll</button>
+                        <button class="btn-game btn--hold p-2 p-sm-3">📥 Hold</button>
+                    </div>
+
+                </div>
+                <p class="name m-0" id="OpponentName">Player2</p>
+                <span class="winner-trophy">🏆</span>
+            </div>
+
+            <img src="assets/imgs/dice-5.png" alt="Playing dice" class="dice" />
+
+            <div class="info-modal p-3">
+                 <div class="info-container d-flex flex-column justify-content-between p-2">
+                    <div class="room-details">
+                        <p class="m-0 text-center"> <span class="d-none d-sm-inline">Room</span> Code: <strong id="room-code">you are offline</strong></p>
+                    </div>
+
+                    <div class="btns-container d-flex flex-column gap-3">
+                        <button class="btn-new-game p-2 p-sm-3">New Game</button>
+                    <button class="btn-end p-2 p-sm-3">End Game</button>
+                    </div>
+                 </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ===== outer curtain ======= -->
+    <div class="curtain d-flex flex-column justify-content-between align-items-center w-100 py-5 px-3">
+
+        <h1 class="text-center text-uppercase grid-title mb-0">Dice Game</h1>
+
+        <div class="container bg-FDD8A8 my-0 rounded-5">
+            <ul class="rules list-unstyled mb-0">
+                <li>Roll the dice to add the score</li>
+                <li>If <strong>one</strong> occurs on the dice, the <strong>turn will shift</strong></li>
+                <li>Collect <strong>100 points</strong> to win the game</li>
+            </ul>
+        </div>
+
+        <div class="py-3 d-flex justify-content-center flex-wrap gap-3 align-content-end btn-container">
+            <button class="btn-custom" id="play-friend-btn">PLAY OFFLINE</button>
+            <!-- <button class="btn-custom" id="play-computer-btn">PLAY WITH COMPUTER</button> -->
+            <button class="btn-custom" id="play-online-btn" data-bs-toggle="modal" data-bs-target="#onlineDataModal">PLAY ONLINE</button>
+        </div>
+
+    </div>
+
+    <!-- ========= online modal ======= -->
+  <div class="modal fade" id="onlineDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Enter Details to Play</h1>
+          <button type="button" class="shadow-none border-0 bg-transparent" data-bs-dismiss="modal" aria-label="Close">&plus;</button>
+        </div>
+        <div class="modal-body">
+          <form action="" id="join-room-form">
+            <div class="mb-3">
+                <input type="text" class="form-control mb-2 shadow-none" id="playername" placeholder="Enter Name">
+                <input type="text" class="form-control mb-2 shadow-none" id="room-code-input" placeholder="Room Code">
+                <p class="mb-0 error-msg">room not found</p>
+                <button class="border-0 btn-custom mt-3 small-font play-btn">
+                    <span class="btn-text">Play</span>
+                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                </button>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer border-0 justify-content-between gap-2">
+            <p class="m-0">Don't have a code?</p>
+          <button type="button" class="border-0 btn-custom small-font m-0">
+            <span class="generate-text">Generate here</span>
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span role="status" class="generating-text">Generating...</span>
+        </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+    <script type="module" src="assets/js/backend.js"></script>
+
+
+</body>
+
+</html>
