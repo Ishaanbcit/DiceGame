@@ -16,16 +16,17 @@
     <main>
         <section class="d-flex justify-content-end w-100 gap-3 pb-3 menu-btn">
             <button class="btn--menu border-0 bg-transparent d-flex flex-column justify-content-center gap-1 p-0">
-                     <span class="top"></span>
-                     <span class="middle"></span>
-                     <span class="bottom"></span>
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
             </button>
         </section>
 
-        <section class="player-dashboard position-relative d-flex flex-column align-items-center justify-content-center m-0">
+        <section
+            class="player-dashboard position-relative d-flex flex-column align-items-center justify-content-center m-0">
 
             <div
-                class="player player--0 player--active position-relative d-flex h-50 w-100 flex-nowrap gap-4 justify-content-between align-items-center p-3 p-md-4 p-lg-5">
+                class="player player--0 player--active position-relative d-flex h-50 w-100 flex-nowrap gap-2 justify-content-between align-items-center p-3 p-md-4 p-lg-5">
                 <div class="d-flex flex-column align-items-center">
                     <h2 class="score-head m-0" id="name--0">score</h2>
                     <p class="score m-0" id="score--0">0</p>
@@ -47,7 +48,7 @@
             </div>
 
             <div
-                class="player player--1 position-relative d-flex h-50 w-100 flex-nowrap gap-4  justify-content-between align-items-center p-3 p-md-4 p-lg-5">
+                class="player player--1 position-relative d-flex h-50 w-100 flex-nowrap gap-2  justify-content-between align-items-center p-3 p-md-4 p-lg-5">
                 <div class="d-flex flex-column align-items-center">
                     <h2 class="score-head m-0" id="name--1">score</h2>
                     <p class="score m-0" id="score--1">0</p>
@@ -72,16 +73,23 @@
             <img src="assets/imgs/dice-5.png" alt="Playing dice" class="dice" />
 
             <div class="info-modal p-3">
-                 <div class="info-container d-flex flex-column justify-content-between p-2">
+                <div class="info-container d-flex flex-column justify-content-between p-2">
                     <div class="room-details">
-                        <p class="m-0 text-center"> <span class="d-none d-sm-inline">Room</span> Code: <strong id="room-code">you are offline</strong></p>
+                        <p class="m-0 text-center"> <span class="d-none d-sm-inline">Room</span> Code: <strong
+                                id="room-code">you are offline</strong></p>
                     </div>
 
-                    <div class="btns-container d-flex flex-column gap-3">
+                    <div class="btns-container d-flex flex-column gap-2">
+                        <button class="btn-share-whatsapp flex-nowrap justify-content-center align-items-center gap-2 p-2 p-sm-3">
+                            <span>Share code on</span>
+                            <figure class="mb-0 d-flex">
+                                <img src="assets/imgs/whatsapp.png" alt="" height="20px" width="20px">
+                            </figure>    
+                        </button>
                         <button class="btn-new-game p-2 p-sm-3">New Game</button>
-                    <button class="btn-end p-2 p-sm-3">End Game</button>
+                        <button class="btn-end p-2 p-sm-3">Exit Game</button>
                     </div>
-                 </div>
+                </div>
             </div>
 
         </section>
@@ -103,44 +111,49 @@
         <div class="py-3 d-flex justify-content-center flex-wrap gap-3 align-content-end btn-container">
             <button class="btn-custom" id="play-friend-btn">PLAY OFFLINE</button>
             <!-- <button class="btn-custom" id="play-computer-btn">PLAY WITH COMPUTER</button> -->
-            <button class="btn-custom" id="play-online-btn" data-bs-toggle="modal" data-bs-target="#onlineDataModal">PLAY ONLINE</button>
+            <button class="btn-custom" id="play-online-btn" data-bs-toggle="modal"
+                data-bs-target="#onlineDataModal">PLAY ONLINE</button>
         </div>
 
     </div>
 
     <!-- ========= online modal ======= -->
-  <div class="modal fade" id="onlineDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Enter Details to Play</h1>
-          <button type="button" class="shadow-none border-0 bg-transparent" data-bs-dismiss="modal" aria-label="Close">&plus;</button>
-        </div>
-        <div class="modal-body">
-          <form action="" id="join-room-form">
-            <div class="mb-3">
-                <input type="text" class="form-control mb-2 shadow-none" id="playername" placeholder="Enter Name">
-                <input type="text" class="form-control mb-2 shadow-none" id="room-code-input" placeholder="Room Code">
-                <p class="mb-0 error-msg">room not found</p>
-                <button class="border-0 btn-custom mt-3 small-font play-btn">
-                    <span class="btn-text">Play</span>
-                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                </button>
-              </div>
-          </form>
-        </div>
-        <div class="modal-footer border-0 justify-content-between gap-2">
-            <p class="m-0">Don't have a code?</p>
-          <button type="button" class="border-0 btn-custom small-font m-0">
-            <span class="generate-text">Generate here</span>
-            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-            <span role="status" class="generating-text">Generating...</span>
-        </button>
+    <div class="modal fade" id="onlineDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Enter Details to Play</h1>
+                    <button type="button" class="shadow-none border-0 bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">&plus;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="join-room-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control mb-2 shadow-none" id="playername"
+                                placeholder="Enter Name">
+                            <input type="text" class="form-control mb-2 shadow-none" id="room-code-input"
+                                placeholder="Room Code">
+                            <p class="mb-0 error-msg">room not found</p>
+                            <button class="border-0 btn-custom mt-3 small-font play-btn">
+                                <span class="btn-text">Play</span>
+                                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 justify-content-between gap-2">
+                    <p class="m-0">Don't have a code?</p>
+                    <button type="button" class="border-0 btn-custom small-font m-0">
+                        <span class="generate-text">Generate here</span>
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span role="status" class="generating-text">Generating...</span>
+                    </button>
 
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 
 

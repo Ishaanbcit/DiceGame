@@ -5,6 +5,19 @@ $(document).ready(function () {
 
    var isOnline = true;
 
+   //======= if joined using link =========
+    const linkUrl = $(location).attr("href");
+    
+    if(linkUrl.includes("?")){
+        const joiningCode = linkUrl.split("?")[1];
+        $("#onlineDataModal form #room-code-input").val(joiningCode);
+        $("#play-online-btn").trigger("click");
+    }
+
+  // =========== click events =========
+
+
+
     //play with friend button
     $("#play-friend-btn").click(function () {
         $("div.curtain").addClass("open");
@@ -51,14 +64,34 @@ $(document).ready(function () {
         $("div.curtain").removeClass("open");
         $("#PlayerName").text("Player 1");
         $("#OpponentName").text("Player 2");
-
+        
+        
         if(isOnline){
             updateDashboard(false);
             endGame();
         }
 
+        isOnline = true;
+
     });
 
+    //whats app share btn
+    $("button.btn-share-whatsapp").click(function(){
+        
+        var code = $(".room-details #room-code").text();
+        var msg = "Join me live on https://ishaanbcit.github.io/DiceGame?" + code ;
+
+        if(isOnline){
+           location.href = 'https://api.whatsapp.com/send?phone=&text='+ msg;
+        }
+
+        else{
+           alert("you are playing offline");
+        }
+    });
+
+
+    // ============ funtions ==============
 
    //roll dice function
     function diceRoll() {
