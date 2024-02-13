@@ -313,6 +313,22 @@ async function updateDashboard(flag) {
 
         //update dice image
         $("img.dice").attr("src", "assets/imgs/dice-" + doc.data().dice + ".png");
+         var x_ani = 20;
+        while (x_ani >= 10){
+            x_ani = Math.floor(Math.random() * (10)) + 1;
+        }
+
+        if(doc.data().dice<5){
+            $(".dice-container.dice").css("transform","rotateX("+90*(doc.data().dice-1)+"deg) rotateY(0deg) rotateZ("+x_ani*360+"deg)");
+        }
+
+        else if(doc.data().dice==5){
+            $(".dice-container.dice").css("transform","rotateX(0deg) rotateY("+90+"deg) rotateZ("+x_ani*360+"deg)");
+        }
+
+        else{
+            $(".dice-container.dice").css("transform","rotateX(0deg) rotateY("+270+"deg) rotateZ("+x_ani*360+"deg)");
+        }
 
         //check for winner
         if (doc.data().won == 1) {

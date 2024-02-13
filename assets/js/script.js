@@ -16,8 +16,6 @@ $(document).ready(function () {
 
   // =========== click events =========
 
-
-
     //play with friend button
     $("#play-friend-btn").click(function () {
         $("div.curtain").addClass("open");
@@ -95,18 +93,35 @@ $(document).ready(function () {
 
    //roll dice function
     function diceRoll() {
-
+        
         let x = 10;
+        let x_ani = 20;
+        while (x >= 7){
+            x = Math.floor(Math.random() * (10)) + 1;
+        }
 
-        while (x > 6){
-            x = Math.floor(Math.random() * (6 - 1)) + 1;
+        while (x_ani >= 10){
+            x_ani = Math.floor(Math.random() * (10)) + 1;
         }
 
         if(isOnline){
              diceRollLive(x);
         }
+         
+        if(x<5){
+            $(".dice-container.dice").css("transform","rotateX("+90*(x-1)+"deg) rotateY(0deg) rotateZ("+x_ani*360+"deg)");
+        }
 
-        $("img.dice").attr("src", "assets/imgs/dice-" + x + ".png");
+        else if(x==5){
+            $(".dice-container.dice").css("transform","rotateX(0deg) rotateY("+90+"deg) rotateZ("+x_ani*360+"deg)");
+        }
+
+        else{
+            $(".dice-container.dice").css("transform","rotateX(0deg) rotateY("+270+"deg) rotateZ("+x_ani*360+"deg)");
+        }
+
+        //console.log(x);
+
         updateCurrentScore(x);
     }
 
@@ -139,11 +154,10 @@ $(document).ready(function () {
    //switch player 
     function switchPlayer() {
 
-        
         if(isOnline){
             if($(".player.player--0").hasClass("player--active")){
                 updateTurn(0);
-            }
+         }
             else{
                 updateTurn(1);
             }
@@ -166,7 +180,6 @@ $(document).ready(function () {
         if(isOnline){
             updateScoreLive(finalScore);
         }
-
 
     }
 

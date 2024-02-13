@@ -51,7 +51,7 @@ main > .menu-btn{
 }
 
 .player {
-  transition: all 0.75s;
+  transition: all 0.2s;
 }
 
 /* CURTAIN */
@@ -63,7 +63,7 @@ main > .menu-btn{
   background-color: #4158D0;
   background-image: linear-gradient(-143deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   overflow: auto;
-  transition: all 1s linear;
+  transition: all 0.5s linear;
 }
 
 .curtain.open {
@@ -131,11 +131,11 @@ button.btn--menu span{
   width:28px;
   background: #C850C0;
   backdrop-filter: blur(10px);
-  transition:all 0.3s linear;
+  transition:all 0.2s linear;
 }
 
 button.btn--menu span.middle{
-  transition-delay:0.3s;
+  transition-delay:0.2s;
 }
 
 button.btn--menu.cross span.middle{
@@ -163,7 +163,7 @@ button.btn--menu.cross span.bottom{
   border-radius:9px;
   transform:ScaleY(0);
   transform-origin:center top;
-  transition:all 0.3s linear;
+  transition:all 0.2s linear;
 }
 
 .show-details .info-modal{
@@ -258,7 +258,7 @@ button.btn--menu.cross span.bottom{
   color: #fff;
   width: 100%;
   text-align: center;
-  transition: all 0.75s;
+  transition: all 0.2s;
 }
 
 .current-label {
@@ -280,6 +280,7 @@ button.btn--menu.cross span.bottom{
   font-size: 1.2rem;
   background-image: -webkit-linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #4158D0 100%);
   color: transparent;
+  background-clip:text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 400;
@@ -426,6 +427,114 @@ div.modal .modal-header button {
 
 #onlineDataModal .modal-footer button.generating span.generate-text {
   display: none;
+}
+
+/* DICE ANIMATION */
+
+.dice-container {
+  height: 4rem;
+  width: 4rem;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transform-style: preserve-3d;
+  transition:all 0.4s ease-in-out;
+}
+
+.dice-container.dice .side {
+  border-radius:8px;
+  overflow:hidden;
+
+}
+
+.dice-container .side {
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+
+}
+
+.dice-container .side-1 {
+  transform: rotateY(0deg) translateZ(2rem);
+  z-index: 9;
+}
+
+.dice-container .side-2 {
+  transform: rotateX(-90deg) translateZ(2rem);
+ 
+  z-index: 99;
+}
+
+.dice-container .side-3 {
+  transform: translateZ(-2rem) rotateY(180deg);
+  z-index: 999;
+}
+
+.dice-container .side-4 {
+  transform: rotateX(90deg) translateZ(2rem);
+  z-index: 9999;
+}
+
+.dice-container .side-5 {
+  transform: rotateY(-90deg) translateZ(2rem);
+  z-index: 99999;
+}
+
+.dice-container .side-6 {
+  transform: rotateY(90deg) translateZ(2rem);
+  z-index: 999999;
+}
+
+.dice-container.animated {
+  height: 1rem;
+  width: 1rem;
+  animation: rotation 10s linear infinite;
+}
+
+
+.dice-container.animated .side {
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+
+}
+
+.dice-container.animated .side-1 {
+  transform: rotateX(-90deg) translateZ(0.5rem);
+  z-index: 9;
+}
+
+.dice-container.animated .side-2 {
+  transform: translateZ(-0.5rem) rotateY(180deg);
+  z-index: 99;
+}
+
+.dice-container.animated .side-3 {
+  transform: rotateY(90deg) translateZ(0.5rem);
+  z-index: 999;
+}
+
+.dice-container.animated .side-4 {
+  transform: rotateY(0deg) translateZ(0.5rem);
+  z-index: 9999;
+}
+
+.dice-container.animated .side-5 {
+  transform: rotateY(-90deg) translateZ(0.5rem);
+  z-index: 99999;
+}
+
+.dice-container.animated .side-6 {
+  transform: rotateX(90deg) translateZ(0.5rem);
+  z-index: 999999;
+}
+
+@keyframes rotation {
+  to {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  from {
+      transform: rotateX(720deg) rotateY(720deg) rotateZ(720deg);
+  }
 }
 
 

@@ -70,7 +70,18 @@
                 <span class="winner-trophy">🏆</span>
             </div>
 
-            <img src="assets/imgs/dice-5.png" alt="Playing dice" class="dice" />
+            <!-- <img src="assets/imgs/dice-5.png" alt="Playing dice" class="dice" /> -->
+
+            <div class="dice-container dice">
+
+                <div class="d-flex align-items-center justify-content-center side side-1"><img src="assets/imgs/dice-1.png" alt="" class="img-fluid"></div>
+                <div class="d-flex align-items-center justify-content-center side side-2"><img src="assets/imgs/dice-2.png" alt="" class="img-fluid"></div>
+                <div class="d-flex align-items-center justify-content-center side side-3"><img src="assets/imgs/dice-3.png" alt="" class="img-fluid"></div>
+                <div class="d-flex align-items-center justify-content-center side side-4"><img src="assets/imgs/dice-4.png" alt="" class="img-fluid"></div>
+                <div class="d-flex align-items-center justify-content-center side side-5"><img src="assets/imgs/dice-5.png" alt="" class="img-fluid"></div>
+                <div class="d-flex align-items-center justify-content-center side side-6"><img src="assets/imgs/dice-6.png" alt="" class="img-fluid"></div>
+    
+            </div>
 
             <div class="info-modal p-3">
                 <div class="info-container d-flex flex-column justify-content-between p-2">
@@ -98,7 +109,16 @@
     <!-- ===== outer curtain ======= -->
     <div class="curtain d-flex flex-column justify-content-between align-items-center w-100 py-5 px-3">
 
-        <h1 class="text-center text-uppercase grid-title mb-0">Dice Game</h1>
+        <h1 class="text-center text-uppercase grid-title mb-0 d-flex align-items-center gap-2"> Dice<div class="dice-container animated">
+
+            <div class="d-flex align-items-center justify-content-center side side-1"><img src="assets/imgs/dice-1.png" alt="" class="img-fluid"></div>
+            <div class="d-flex align-items-center justify-content-center side side-2"><img src="assets/imgs/dice-2.png" alt="" class="img-fluid"></div>
+            <div class="d-flex align-items-center justify-content-center side side-3"><img src="assets/imgs/dice-3.png" alt="" class="img-fluid"></div>
+            <div class="d-flex align-items-center justify-content-center side side-4"><img src="assets/imgs/dice-4.png" alt="" class="img-fluid"></div>
+            <div class="d-flex align-items-center justify-content-center side side-5"><img src="assets/imgs/dice-5.png" alt="" class="img-fluid"></div>
+            <div class="d-flex align-items-center justify-content-center side side-6"><img src="assets/imgs/dice-6.png" alt="" class="img-fluid"></div>
+
+        </div> Game</h1>
 
         <div class="container bg-FDD8A8 my-0 rounded-5">
             <ul class="rules list-unstyled mb-0">
@@ -128,7 +148,7 @@
                         aria-label="Close">&plus;</button>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="join-room-form">
+                    <form id="join-room-form">
                         <div class="mb-3">
                             <input type="text" class="form-control mb-2 shadow-none" id="playername"
                                 placeholder="Enter Name">
